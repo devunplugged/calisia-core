@@ -6,15 +6,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Options{
+    private $optionGroup;
     private $optionName;
 
-    function __construct($optionName){
+    function __construct($optionGroup, $optionName, $args=[]){
+        $this->optionGroup = $optionGroup;
         $this->optionName = $optionName;
+        $this->RegisterSetting($args);
     }
 
-    public function RegisterSetting($optionGroup, $args=[]){
+    public function RegisterSetting($args=[]){
         \register_setting(
-            $optionGroup,
+            $this->optionGroup,
             $this->optionName,
             $args
         );

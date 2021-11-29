@@ -17,7 +17,6 @@ class SubMenuPage{
     public $position = null;
     public $optionGroup;
     public $page;
-    public $templateVars;
 
     private $renderer;
     
@@ -43,8 +42,7 @@ class SubMenuPage{
             [
                 'title' => $this->pageTitle,
                 'optionGroup' => $this->optionGroup,
-                'page' => $this->page,
-                'templateVars' => $this->templateVars
+                'page' => $this->page
             ]
         );
     }

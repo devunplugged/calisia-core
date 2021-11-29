@@ -10,8 +10,8 @@ use CalisiaCore\Interfaces\IRenderer;
 class Section{
     public $id;
     public $title;
-    public $template;
-    public $page;
+    public $template = CALISIA_CORE_ROOT . '/templates/default-settings-section';
+    public $pageSlug;
     public $text;
 
     private $renderer;
@@ -25,11 +25,12 @@ class Section{
             $this->id,
             $this->title,
             [$this, 'Render'],
-            $this->page 
+            $this->pageSlug 
         );
     }
 
     public function Render(){
+   
         $this->renderer->render(
             $this->template,
             [

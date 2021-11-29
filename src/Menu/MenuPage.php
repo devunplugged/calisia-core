@@ -12,12 +12,14 @@ class MenuPage{
     public $menuTitle;
     public $capability;
     public $menuSlug;
-    public $pageTemplate = '';
+    public $template = CALISIA_CORE_ROOT . '/templates/default-settings-page';
+    public $templateVars = [];
     public $iconUrl = '';
     public $position = null;
-    public $optionGroup;
-    public $page;
-    public $templateVars;
+    public $settingsPage = 'my-settings-page';
+    public $optionGroup = 'my-option-group';
+    public $saveButtonText = 'Save';
+
 
     private $renderer;
     
@@ -39,12 +41,13 @@ class MenuPage{
 
     public function Render(){
         $this->renderer->render(
-            $this->pageTemplate,
+            $this->template,
             [
                 'title' => $this->pageTitle,
+                'settingsPage' => $this->settingsPage,
                 'optionGroup' => $this->optionGroup,
-                'page' => $this->page,
-                'templateVars' => $this->templateVars
+                'templateVars' => $this->templateVars,
+                'saveButtonText' => $this->saveButtonText,
             ]
         );
     }
