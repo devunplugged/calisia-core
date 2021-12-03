@@ -24,18 +24,18 @@ class SettingsPage{
         $this->renderer = $renderer;
     }
 
-    public function Add(){
+    public function add(){
         \add_options_page(
             $this->pageTitle,
             $this->menuTitle,
             $this->capability,
             $this->menuSlug,
-            [$this, 'Render'],
+            [$this, 'render'],
             $this->position
         );
     }
 
-    public function Render(){
+    public function render(){
         $this->renderer->render(
             $this->pageTemplate,
             [

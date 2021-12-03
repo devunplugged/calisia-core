@@ -15,6 +15,7 @@ class Field{
     public $title;
     public $page;
     public $sectionId;
+    public $template;
 
     private $renderer;
     
@@ -24,23 +25,27 @@ class Field{
 
     
 
-    public function Add(){
+    public function add(){
         \add_settings_field(
             $this->id,
             $this->title,
-            [$this, 'Render'],
+            [$this, 'render'],
             $this->page, 
             $this->sectionId
         );
     }
 
-    public function Render(){
+    public function render(){
 
         $this->input->id = $this->id;
         $this->input->name = $this->optionName . '[' . $this->id . ']';
         //$this->input->class = 'my-input-class';
         
-        $this->input->render($this->renderer);
+        if($this->template){
+            $this->input->render($this->renderer, true, $this->template);
+        }else{
+            $this->input->render($this->renderer);
+        }
     }
 
     

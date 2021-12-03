@@ -15,7 +15,7 @@ class Options{
         $this->RegisterSetting($args);
     }
 
-    public function RegisterSetting($args=[]){
+    public function registerSetting($args=[]){
         \register_setting(
             $this->optionGroup,
             $this->optionName,
@@ -23,14 +23,14 @@ class Options{
         );
     }
 
-    public function option_on($option_name){
+    public function optionOn($option_name){
         $options = get_option( $this->optionName );
         if(!isset($options[$option_name]) || !$options[$option_name])
             return 0;
         return 1;
     }
 
-    public function get_option_value($option_name){
+    public function getOptionValue($option_name){
         $options = get_option( $this->optionName );
         if(isset($options[$option_name]) && $options[$option_name])
             return $options[$option_name];

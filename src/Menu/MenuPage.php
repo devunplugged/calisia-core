@@ -16,7 +16,7 @@ class MenuPage{
     public $templateVars = [];
     public $iconUrl = '';
     public $position = null;
-    public $settingsPage = 'my-settings-page';
+    public $settingsPageSlug = 'my-settings-page';
     public $optionGroup = 'my-option-group';
     public $saveButtonText = 'Save';
 
@@ -44,7 +44,7 @@ class MenuPage{
             $this->template,
             [
                 'title' => $this->pageTitle,
-                'settingsPage' => $this->settingsPage,
+                'settingsPageSlug' => $this->settingsPageSlug,
                 'optionGroup' => $this->optionGroup,
                 'templateVars' => $this->templateVars,
                 'saveButtonText' => $this->saveButtonText,

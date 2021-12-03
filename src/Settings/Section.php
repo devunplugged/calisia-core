@@ -11,7 +11,7 @@ class Section{
     public $id;
     public $title;
     public $template = CALISIA_CORE_ROOT . '/templates/default-settings-section';
-    public $pageSlug;
+    public $settingsPageSlug;
     public $text;
 
     private $renderer;
@@ -20,16 +20,16 @@ class Section{
         $this->renderer = $renderer;
     }
 
-    public function Add(){
+    public function add(){
         \add_settings_section( 
             $this->id,
             $this->title,
-            [$this, 'Render'],
-            $this->pageSlug 
+            [$this, 'render'],
+            $this->settingsPageSlug 
         );
     }
 
-    public function Render(){
+    public function render(){
    
         $this->renderer->render(
             $this->template,
