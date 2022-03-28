@@ -35,9 +35,7 @@ class Metabox{
     public function render(){
         $this->renderer->render(
             $this->template,
-            [
-                'templateVars' => $this->templateVars,
-            ]
+            $this->templateVars,
         );
     }
     

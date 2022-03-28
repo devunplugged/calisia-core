@@ -1,12 +1,12 @@
 <?php
-namespace CalisiaCore\JsLoader;
+namespace CalisiaCore\Loaders;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit();
 }
 
-class JsLoader{
-    public function load($name, $filePath, $validator, $deps = array(), $ver = false, $in_footer = false){
+class ResourceLoader{
+    public static function loadJs($name, $filePath, $validator, $deps = array(), $ver = false, $in_footer = false){
         if($validator() === true){
             wp_enqueue_script($name, $filePath, $deps, $ver, $in_footer);
             return true;
@@ -14,7 +14,7 @@ class JsLoader{
         return false;
     }
 
-    public function injectObject($scriptName, $jsObjectName, $values){
+    public static function injectJsObject($scriptName, $jsObjectName, $values){
         wp_localize_script( $scriptName, $jsObjectName, $values );
     }
 }
