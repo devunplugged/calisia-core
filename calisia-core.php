@@ -7,6 +7,10 @@
 
 define("CALISIA_CORE_ROOT", __DIR__);
 
+define('CALISIA_CORE_URL', plugin_dir_url(__FILE__));
+define("CALISIA_CORE_CSS", CALISIA_CORE_URL . 'res/css');
+define("CALISIA_CORE_JS", CALISIA_CORE_URL . 'res/js');
+
 require_once CALISIA_CORE_ROOT . '/vendor/autoload.php';
 
 

@@ -17,4 +17,12 @@ class ResourceLoader{
     public static function injectJsObject($scriptName, $jsObjectName, $values){
         wp_localize_script( $scriptName, $jsObjectName, $values );
     }
+
+    public static function loadCss($name, $filePath, $validator, $deps = array(), $ver = false, $media = 'all'){
+        if($validator() === true){
+            wp_enqueue_style($name, $filePath, $deps, $ver, $media);
+            return true;
+        }
+        return false;
+    }
 }
